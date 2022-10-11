@@ -15,18 +15,23 @@ class Users extends Component {
           </ul>
           {/* Write code here that displays the usernames of all users in the Redux store */}
           {/* In addition, display the total number of users curently in the store */}
-          <p>Number total of user in the database : {this.props.user.length}</p>
+          <p>Number total of user in the database : {this.props.numberOfUsers}</p>
         </ul>
       </div>
     )
   }
 }
 
+
+// NEED TO RETURN THE PROPS FROM THE STORE AND RETRIEVE IT HERE WITH PROPS
 //add mapStateToProps here
 const mapSateToProps = (state) => {
-  return { user: state.users}
+  return { user: state.users,
+            numberOfUsers: state.users.length
+  }
 }
 
+// NEED TO CONNECT THE COMPONENT WITH THE STORE
 
 export default connect(mapSateToProps)(Users)
 // connect this component to Redux
